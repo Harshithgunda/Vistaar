@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import { AuthProvider } from './AuthContext';
 import './index.css';
+import 'react-toastify/dist/ReactToastify.css'; // ✅ Added toast CSS here
 
 const rootElement = document.getElementById('root');
 if (!rootElement) throw new Error("Root element not found");
