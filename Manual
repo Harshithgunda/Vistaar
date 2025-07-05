@@ -1,0 +1,193 @@
+# Vistaar — E-Commerce Web Application Manual
+
+**Author:** Harshith Gunda
+**GitHub Repo:** [https://github.com/Harshithgunda/Vistaar](https://github.com/Harshithgunda/Vistaar)
+**Live URL:** *(Deployed Vercel link here)*
+**Tech Stack:** React, TypeScript, Tailwind CSS, Firebase, Razorpay, Vite
+
+---
+
+## 1. Project Overview
+
+Vistaar is a modern e-commerce web application that allows users to:
+
+* Browse products by category
+* Search for items using a dynamic search bar
+* Add/remove items from the shopping cart
+* Login and register using Firebase Authentication
+* Checkout using Razorpay integrated payments
+* Receive toast notifications for all key actions
+* Deploy the app via Vercel for production
+
+---
+
+## 2. Folder Structure
+
+```
+Vistaar/
+├── public/
+│   ├── favicon.ico
+│   └── logo.png
+├── src/
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── firebase.ts
+│   ├── AuthContext.tsx
+│   ├── data/
+│   │   └── products.ts
+│   ├── pages/
+│   │   ├── Login.tsx
+│   │   └── Register.tsx
+│   ├── index.css
+├── .env
+├── index.html
+├── package.json
+├── vite.config.ts
+```
+
+---
+
+## 3. Technologies & Tools Used
+
+### Frontend
+
+* React
+* TypeScript
+* Tailwind CSS
+* Lucide-react
+* React Toastify
+* React Router DOM
+
+### Backend/Auth
+
+* Firebase Authentication
+* Razorpay
+
+### Build & Deployment
+
+* Vite
+* Vercel
+
+---
+
+## 4. Environment Variables
+
+Defined in `.env` and configured in Vercel:
+
+```
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+VITE_RAZORPAY_KEY=
+```
+
+---
+
+## 5. Authentication
+
+* Firebase Authentication is used
+* Auth state is handled by a custom AuthContext
+* Pages are restricted based on login status
+
+---
+
+## 6. Cart Functionality
+
+* Cart state handled with useState
+* Supports add, remove, and quantity update
+* Checkout opens modal to collect address
+
+---
+
+## 7. Payment Integration
+
+* Razorpay payment is initialized on checkout
+* Razorpay script is loaded in `index.html`
+* Total is calculated and passed as paise
+
+---
+
+## 8. Search Functionality
+
+* Dynamic filtering of products by input
+* Category-based suggestions with datalist
+
+---
+
+## 9. Products and Categories
+
+* Stored in `src/data/products.ts`
+* Contains id, name, price, image, and category
+
+---
+
+## 10. UI/UX Features
+
+* Responsive layout using Tailwind CSS
+* Toast notifications for user actions
+* Custom favicon and logo
+* Logged-in user details shown in header
+
+---
+
+## 11. Vite Config
+
+```ts
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  optimizeDeps: {
+    include: ['lucide-react'],
+  },
+  server: {
+    fs: { strict: false },
+  },
+});
+```
+
+---
+
+## 12. Scripts in package.json
+
+```json
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
+}
+```
+
+---
+
+## 13. Deployment
+
+* Hosted on Vercel
+* Environment variables added in dashboard
+* Firebase authorized domains include `.vercel.app`
+
+---
+
+## 14. Testing Done
+
+* Login/Register flow
+* Cart management
+* Checkout form validation
+* Razorpay test payments
+* UI responsiveness
+
+---
+
+## 15. Developer Notes
+
+* Run locally using `npm run dev`
+* Use test Razorpay key for development
+* Firebase keys should never be public
+
+---
